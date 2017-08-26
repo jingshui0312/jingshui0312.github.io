@@ -1,2 +1,3 @@
 ## 帝都小码农的个人博客
 搭建中...
+[测试](http://www.jingshui0312.club/pages/test.html)
