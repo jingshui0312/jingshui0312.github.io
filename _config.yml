@@ -42,9 +42,9 @@ author: Richey.li
 # ga_tracking_id:  #Google analytics id for the site
 
 ## Reading quantity (LeanCloud) ##
-# app_id:  #LeanCloud App id
-# app_key:  #LeanCloud App key
-# app_class:  #LeanCloud App class
+app_id: 3cnhucSmLXz0OGVSjw4NhJwR-gzGzoHsz
+app_key: QYhjUz3LeexIIEiYskUQkvMI
+app_class: my_blog
 
 ## Paginate ##
 paginate: 5
