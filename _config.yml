@@ -44,7 +44,7 @@ author: Richey.li
 ## Reading quantity (LeanCloud) ##
 app_id: 3cnhucSmLXz0OGVSjw4NhJwR-gzGzoHsz
 app_key: QYhjUz3LeexIIEiYskUQkvMI
-app_class: my_blog
+app_class: blog_view
 
 ## Paginate ##
 paginate: 5
