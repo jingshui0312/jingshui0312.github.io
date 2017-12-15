@@ -8,9 +8,9 @@
 ## Base settings ##
 # base_url: https://www.someone.com # **required!** The site's Protocol and Hostname e.g. https://blog.someone.com
 base_path: '/'
-title: 帝都码农的博客
+title: 京沪浪人的博客
 description: > #this means to ignore newlines until "nav_lists:"
-  帝都码农,自食其力,自得其乐
+  生于雄安，学在北洋，往返于京津冀，身体力行实践京津冀一体化
 
 nav_lists:
   - title: About
