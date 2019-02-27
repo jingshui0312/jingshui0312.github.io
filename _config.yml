@@ -8,9 +8,9 @@
 ## Base settings ##
 # base_url: https://www.someone.com # **required!** The site's Protocol and Hostname e.g. https://blog.someone.com
 base_path: '/'
-title: 京沪浪人的博客
+title: 浪人小站
 description: > #this means to ignore newlines until "nav_lists:"
-  生于雄安，学在北洋，往返于京津冀，身体力行实践京津冀一体化
+
 
 nav_lists:
   - title: About
@@ -42,8 +42,8 @@ author: Richey.li
 # ga_tracking_id:  #Google analytics id for the site
 
 ## Reading quantity (LeanCloud) ##
-app_id: 3cnhucSmLXz0OGVSjw4NhJwR-gzGzoHsz
-app_key: QYhjUz3LeexIIEiYskUQkvMI
+app_id: uNUicK9cC7Hc6BozDl3vJ1qh-gzGzoHsz
+app_key: gKDmyh2M5uhQL0KMbClpyGO2
 app_class: blog_view
 
 ## Paginate ##
