@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jingshui0312</title>
+    <style>
+
+
+/* 开罗游戏风格 - Pixel UI */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=ZCOOL+KuaiLe&display=swap&subset=latin,chinese');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', 'ZCOOL KuaiLe', 'Courier New', 'SimHei', 'Microsoft YaHei', monospace;
+    background-color: #FFF8E7;
+    color: #2D3436;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* 容器 */
+.cairo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 4px solid #2D3436;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* 顶部标题栏 */
+.cairo-header {
+    background: #FFD93D;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 4px solid #2D3436;
+}
+
+.cairo-header h1 {
+    font-size: 14px;
+    color: #2D3436;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+/* 内容区域 */
+.cairo-content {
+    padding: 16px;
+    min-height: 200px;
+}
+
+/* 按钮区域 */
+.cairo-actions {
+    background: #FFF8E7;
+    padding: 12px;
+    border-top: 4px solid #2D3436;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 主按钮 */
+.cairo-btn {
+    font-family: 'Press Start 2P', 'ZCOOL KuaiLe', 'Courier New', 'SimHei', 'Microsoft YaHei', monospace;
+    font-size: 12px;
+    padding: 12px 20px;
+    background: #FFD93D;
+    color: #2D3436;
+    border: 3px solid #2D3436;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 rgba(0,0,0,0.2);
+}
+
+.cairo-btn.secondary {
+    background: #6BCB77;
+}
+
+.cairo-btn.accent {
+    background: #4D96FF;
+}
+
+.cairo-btn.warning {
+    background: #FF6B6B;
+}
+
+/* 对话框 */
+.cairo-dialog {
+    background: #FFFFFF;
+    border: 4px solid #2D3436;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+
+.cairo-dialog-title {
+    font-size: 12px;
+    margin-bottom: 12px;
+    color: #4D96FF;
+}
+
+.cairo-dialog-content {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #636E72;
+}
+
+/* 列表项 */
+.cairo-list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.cairo-list-item:hover {
+    border-color: #4D96FF;
+    transform: translateX(4px);
+}
+
+.cairo-list-item-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    min-width: 32px;
+    text-align: center;
+}
+
+.cairo-list-item-content {
+    flex: 1;
+}
+
+.cairo-list-item-title {
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.cairo-list-item-subtitle {
+    font-size: 9px;
+    color: #636E72;
+}
+
+/* 状态标签 */
+.cairo-badge {
+    font-family: 'Press Start 2P', 'ZCOOL KuaiLe', 'Courier New', 'SimHei', 'Microsoft YaHei', monospace;
+    font-size: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 2px solid #2D3436;
+}
+
+.cairo-badge.success {
+    background: #6BCB77;
+    color: white;
+}
+
+.cairo-badge.warning {
+    background: #FF6B6B;
+    color: white;
+}
+
+.cairo-badge.info {
+    background: #4D96FF;
+    color: white;
+}
+
+/* 进度条 */
+.cairo-progress {
+    width: 100%;
+    height: 24px;
+    background: #E0E0E0;
+    border: 2px solid #2D3436;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.cairo-progress-bar {
+    height: 100%;
+    background: #FFD93D;
+    transition: width 0.3s;
+}
+
+/* 输入框 */
+.cairo-input {
+    width: 100%;
+    font-family: 'Press Start 2P', 'ZCOOL KuaiLe', 'Courier New', 'SimHei', 'Microsoft YaHei', monospace;
+    font-size: 12px;
+    padding: 12px;
+    background: white;
+    border: 3px solid #2D3436;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.cairo-input:focus {
+    outline: none;
+    border-color: #4D96FF;
+}
+
+/* 图标 */
+.cairo-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* 像素头像 */
+.cairo-avatar {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 0 12px 12px 0;
+    vertical-align: middle;
+    position: relative;
+}
+
+.cairo-avatar-face {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #6a8aaa 0%, #5a7a9a 100%);
+    border: 4px solid #4a6a8a;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    animation: avatar-bounce 2s ease-in-out infinite;
+}
+
+@keyframes avatar-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.cairo-avatar-eyes {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.cairo-avatar-eye {
+    width: 8px;
+    height: 10px;
+    background: white;
+    border-radius: 2px;
+    animation: avatar-blink 3s infinite;
+}
+
+@keyframes avatar-blink {
+    0%, 90%, 100% { height: 10px; }
+    95% { height: 2px; }
+}
+
+.cairo-avatar-mouth {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 4px;
+    background: #3a4a5a;
+    border-radius: 2px;
+}
+
+.cairo-avatar-antenna {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background: #5a7a9a;
+}
+
+.cairo-avatar-antenna::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #4aff4a;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #4aff4a;
+    animation: avatar-glow 2s infinite;
+}
+
+@keyframes avatar-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* 抽屉样式 */
+.cairo-drawer {
+    margin-bottom: 12px;
+    background: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cairo-drawer-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.cairo-drawer-header:hover {
+    background: #F8F8E8;
+}
+
+.cairo-drawer-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    min-width: 32px;
+    text-align: center;
+}
+
+.cairo-drawer-title {
+    flex: 1;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cairo-drawer-arrow {
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.cairo-drawer.open .cairo-drawer-arrow {
+    transform: rotate(90deg);
+}
+
+.cairo-drawer-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 12px;
+}
+
+.cairo-drawer.open .cairo-drawer-content {
+    max-height: 1000px;
+    padding: 12px;
+    border-top: 2px solid #E0E0E0;
+}
+
+.cairo-drawer-text {
+    font-size: 9px;
+    line-height: 1.8;
+    color: #636E72;
+    word-wrap: break-word;
+}
+
+/* 高亮抽屉（按钮样式）*/
+.cairo-drawer.highlight {
+    background: #FFD93D;
+    border: 3px solid #2D3436;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-drawer.highlight .cairo-drawer-header {
+    padding: 12px 20px;
+}
+
+.cairo-drawer.highlight .cairo-drawer-header:hover {
+    background: #FFE066;
+}
+
+.cairo-drawer.highlight .cairo-drawer-content {
+    border-top: 3px solid #2D3436;
+    padding: 16px 20px;
+}
+
+.cairo-drawer.highlight .cairo-drawer-text {
+    color: #2D3436;
+    font-size: 11px;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .cairo-container {
+        max-width: 100%;
+    }
+
+    .cairo-header h1 {
+        font-size: 12px;
+    }
+
+    .cairo-btn {
+        font-size: 10px;
+        padding: 10px 16px;
+    }
+}
+
+/* 场景样式 - 办公室 */
+.cairo-scene-container {
+    background: #F0F5E9;
+    border: 4px solid #2D3436;
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    max-width: 100%;
+}
+
+.cairo-scene {
+    display: grid;
+    gap: 2px;
+    background: #E5EAD7;
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+    min-width: min-content;
+}
+
+.cairo-scene-cell {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 1px solid #D0D5C7;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.cairo-scene-cell:hover {
+    border-color: #4D96FF;
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+/* 地面类型 */
+.cairo-scene-cell.floor {
+    background: #FEF9E7;
+}
+
+.cairo-scene-cell.carpet {
+    background: #E8F5E9;
+}
+
+.cairo-scene-cell.corridor {
+    background: #FFF3E0;
+}
+
+/* 办公室物品 - 像素风格 */
+.cairo-scene-object {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.cairo-pixel-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+/* 办公桌 */
+.cairo-pixel-desk {
+    background: linear-gradient(180deg, #8B7355 0%, #6B5344 100%);
+    border: 2px solid #4A3A2A;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-desk::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 6px;
+    background: #5C5C5C;
+    border: 1px solid #3C3C3C;
+    border-radius: 1px;
+}
+
+/* 咖啡机 */
+.cairo-pixel-coffee {
+    background: linear-gradient(180deg, #E74C3C 0%, #C0392B 100%);
+    border: 2px solid #922B21;
+    border-radius: 4px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-coffee::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 2px;
+}
+
+.cairo-pixel-coffee::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 4px;
+    background: #95A5A6;
+    border: 1px solid #7F8C8D;
+    border-radius: 1px;
+}
+
+/* 白板 */
+.cairo-pixel-whiteboard {
+    background: linear-gradient(180deg, #ECF0F1 0%, #BDC3C7 100%);
+    border: 2px solid #7F8C8D;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-whiteboard::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    background: #E74C3C;
+    border-radius: 1px;
+}
+
+.cairo-pixel-whiteboard::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    background: #3498DB;
+    border-radius: 1px;
+}
+
+/* 植物 */
+.cairo-pixel-plant {
+    background: linear-gradient(180deg, #27AE60 0%, #1E8449 100%);
+    border: 2px solid #145A32;
+    border-radius: 50% 50% 40% 40%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-plant::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 8px;
+    background: linear-gradient(180deg, #D4AC0D 0%, #B7950B 100%);
+    border: 2px solid #9A7D0A;
+    border-radius: 2px;
+}
+
+/* 打印机 */
+.cairo-pixel-printer {
+    background: linear-gradient(180deg, #95A5A6 0%, #7F8C8D 100%);
+    border: 2px solid #5D6D7E;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-printer::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    background: #34495E;
+    border: 1px solid #2C3E50;
+    border-radius: 1px;
+}
+
+.cairo-pixel-printer::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 2px;
+    width: 12px;
+    height: 3px;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+}
+
+/* 电脑 */
+.cairo-pixel-computer {
+    background: linear-gradient(180deg, #2C3E50 0%, #1A252F 100%);
+    border: 2px solid #17202A;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-computer::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 10px;
+    height: 8px;
+    background: #3498DB;
+    border: 1px solid #2980B9;
+    animation: screen-flicker 3s infinite;
+}
+
+@keyframes screen-flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96%, 98% { opacity: 0.8; }
+}
+
+/* 会议桌 */
+.cairo-pixel-meeting {
+    background: linear-gradient(180deg, #D4AC0D 0%, #B7950B 100%);
+    border: 2px solid #9A7D0A;
+    border-radius: 6px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-meeting::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    background: #F4D03F;
+    border-radius: 1px;
+    opacity: 0.8;
+}
+
+/* 椅子 */
+.cairo-pixel-chair {
+    background: linear-gradient(180deg, #E74C3C 0%, #C0392B 100%);
+    border: 2px solid #922B21;
+    border-radius: 4px 4px 1px 1px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-chair::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 4px;
+    width: 2px;
+    height: 6px;
+    background: #7B241C;
+}
+
+.cairo-pixel-chair::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 4px;
+    width: 2px;
+    height: 6px;
+    background: #7B241C;
+}
+
+/* 电话 */
+.cairo-pixel-phone {
+    background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);
+    border: 2px solid #1F618D;
+    border-radius: 6px 6px 12px 12px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-phone::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    background: #85C1E9;
+    border-radius: 3px;
+}
+
+/* 门 */
+.cairo-pixel-door {
+    background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    border: 2px solid #654321;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-door::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border: 1px solid #DAA520;
+    border-radius: 50%;
+}
+
+/* 窗户 */
+.cairo-pixel-window {
+    background: linear-gradient(180deg, #85C1E9 0%, #5DADE2 100%);
+    border: 2px solid #2E86C1;
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cairo-pixel-window::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 24px;
+    background: #3498DB;
+}
+
+.cairo-pixel-window::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 2px;
+    background: #3498DB;
+}
+
+@keyframes object-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+/* 角色 */
+.cairo-scene-character {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    cursor: pointer;
+    transition: all 0.2s;
+    animation: character-idle 3s ease-in-out infinite;
+}
+
+.cairo-scene-character:hover {
+    transform: scale(1.2);
+    z-index: 30;
+}
+
+@keyframes character-idle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.cairo-character-avatar {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 2px solid #3498DB;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.cairo-character-name {
+    position: absolute;
+    bottom: -14px;
+    font-size: 7px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.cairo-character-status {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: status-pulse 1.5s infinite;
+}
+
+.cairo-character-status.working {
+    background: #FFD93D;
+}
+
+.cairo-character-status.resting {
+    background: #6BCB77;
+}
+
+.cairo-character-status.meeting {
+    background: #4D96FF;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* 场景状态栏 */
+.cairo-scene-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border: 2px solid #E0E0E0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 10px;
+}
+
+.cairo-scene-status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cairo-scene-status-icon {
+    font-size: 16px;
+}
+
+/* 详情弹窗 */
+.cairo-scene-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 4px solid #2D3436;
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 280px;
+    max-width: 320px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    display: none;
+}
+
+.cairo-scene-popup.active {
+    display: block;
+    animation: popup-in 0.2s ease-out;
+}
+
+@keyframes popup-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.cairo-scene-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.cairo-scene-popup-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4D96FF;
+}
+
+.cairo-scene-popup-close {
+    font-size: 18px;
+    cursor: pointer;
+    color: #636E72;
+    transition: color 0.15s;
+}
+
+.cairo-scene-popup-close:hover {
+    color: #FF6B6B;
+}
+
+.cairo-scene-popup-content {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #636E72;
+    margin-bottom: 12px;
+}
+
+.cairo-scene-popup-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 遮罩层 */
+.cairo-scene-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+.cairo-scene-overlay.active {
+    display: block;
+}
+
+/* 场景响应式 */
+@media (max-width: 480px) {
+    .cairo-scene-cell {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cairo-scene-object {
+        width: 32px;
+        height: 32px;
+    }
+
+    .cairo-pixel-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cairo-character-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        background: transparent;
+    }
+
+    .cairo-character-name {
+        font-size: 6px;
+        padding: 1px 3px;
+    }
+
+    .cairo-scene-popup {
+        min-width: 240px;
+        max-width: 280px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="cairo-container">
+
+
+        <div class="cairo-header">
+            <h1>jingshui0312</h1>
+        </div>
+
+
+        <div class="cairo-content">
+
+
+            <div class="cairo-dialog">
+                <div class="cairo-dialog-title">欢迎来到我的主页 <span class="cairo-badge success">ONLINE</span></div>
+                <div class="cairo-dialog-content">我是一名软件工程师，热爱代码、AI 和开源项目。</div>
+            </div>
+
+
+        <div style="margin-top: 16px;">
+
+
+            <div class="cairo-drawer" id="drawer-0">
+                <div class="cairo-drawer-header" onclick="toggleDrawer('drawer-0')">
+                    <div class="cairo-drawer-icon">🏢</div>
+                    <div class="cairo-drawer-title">GitHub</div>
+                    <div class="cairo-drawer-arrow">▶</div>
+                </div>
+                <div class="cairo-drawer-content">
+                    <div class="cairo-drawer-text">github.com/jingshui0312</div>
+                </div>
+            </div>
+
+
+            <div class="cairo-drawer" id="drawer-1">
+                <div class="cairo-drawer-header" onclick="toggleDrawer('drawer-1')">
+                    <div class="cairo-drawer-icon">👤</div>
+                    <div class="cairo-drawer-title">关于我</div>
+                    <div class="cairo-drawer-arrow">▶</div>
+                </div>
+                <div class="cairo-drawer-content">
+                    <div class="cairo-drawer-text">软件工程师 · AI 探索者</div>
+                </div>
+            </div>
+
+
+            <div class="cairo-drawer" id="drawer-2">
+                <div class="cairo-drawer-header" onclick="toggleDrawer('drawer-2')">
+                    <div class="cairo-drawer-icon">▶️</div>
+                    <div class="cairo-drawer-title">开源项目</div>
+                    <div class="cairo-drawer-arrow">▶</div>
+                </div>
+                <div class="cairo-drawer-content">
+                    <div class="cairo-drawer-text">探索我的代码</div>
+                </div>
+            </div>
+
+
+            <div class="cairo-drawer" id="drawer-3">
+                <div class="cairo-drawer-header" onclick="toggleDrawer('drawer-3')">
+                    <div class="cairo-drawer-icon">⭐</div>
+                    <div class="cairo-drawer-title">收藏项目</div>
+                    <div class="cairo-drawer-arrow">▶</div>
+                </div>
+                <div class="cairo-drawer-content">
+                    <div class="cairo-drawer-text">我喜欢的开源项目</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div style="margin-top: 16px;">
+            <div style="display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 4px;">
+                <span>编码进度</span>
+                <span>42/100 (42%)</span>
+            </div>
+            <div class="cairo-progress">
+                <div class="cairo-progress-bar" style="width: 42%"></div>
+            </div>
+        </div>
+
+
+        </div>
+
+
+        <div class="cairo-actions">
+
+
+            <button class="cairo-btn" onclick="window.open('https://github.com/jingshui0312', '_blank')">
+                <span class="cairo-icon">🏢</span>GitHub
+            </button>
+
+
+            <button class="cairo-btn secondary" onclick="alert('邮箱: jingshui0312@gmail.com')">
+                <span class="cairo-icon">ℹ️</span>联系我
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+    <script>
+        // 抽屉切换功能（简化版 - 纯 CSS 类切换）
+        function toggleDrawer(drawerId) {{
+            const drawer = document.getElementById(drawerId);
+            const content = drawer.querySelector('.cairo-drawer-content');
+
+            if (drawer.classList.contains('open')) {{
+                // 收起
+                drawer.classList.remove('open');
+            }} else {{
+                // 展开
+                drawer.classList.add('open');
+            }}
+        }}
+
+        // 按钮点击交互
+        document.querySelectorAll('.cairo-btn').forEach(btn => {{
+            btn.addEventListener('click', function(e) {{
+                if (!this.getAttribute('onclick')) {{
+                    alert('按钮被点击了！');
+                }}
+            }});
+        }});
+
+        // 场景单元格点击
+        function handleSceneCellClick(x, y) {{
+            const cells = document.querySelectorAll('.cairo-scene-cell');
+            cells.forEach(cell => {{
+                if (parseInt(cell.dataset.x) === x && parseInt(cell.dataset.y) === y) {{
+                    const obj = cell.querySelector('.cairo-scene-object');
+                    const char = cell.querySelector('.cairo-scene-character');
+
+                    if (obj) {{
+                        showScenePopup('物体详情', `位置: (${{x}}, ${{y}})<br>类型: ${{obj.textContent || '未知'}}<br>可以放置建筑或物品`, false);
+                    }} else if (char) {{
+                        // 角色点击由单独的处理函数处理
+                    }} else {{
+                        showScenePopup('空地', `位置: (${{x}}, ${{y}})<br>可以放置建筑或物品`, true);
+                    }}
+                }}
+            }});
+        }}
+
+        // 角色点击
+        function handleCharacterClick(name, type, state) {{
+            const stateText = {{
+                'working': '工作中 💻',
+                'resting': '休息中 ☕',
+                'meeting': '开会中 📋',
+                'overtime': '加班中 🌙'
+            }}[state] || state;
+
+            showScenePopup(
+                `${{name}} <span style="font-size: 20px;">${{getCharacterIcon(type)}}</span>`,
+                `类型: ${{type}}<br>状态: ${{stateText}}<br>效率: 85%<br>心情: 开心 😊`,
+                false
+            );
+        }}
+
+        // 显示场景弹窗
+        function showScenePopup(title, content, canBuild) {{
+            document.getElementById('popupTitle').innerHTML = title;
+            document.getElementById('popupContent').innerHTML = content;
+
+            const actionsDiv = document.getElementById('popupContent').nextElementSibling;
+            if (canBuild) {{
+                actionsDiv.innerHTML = `
+                    <button class="cairo-btn" style="font-size: 9px; padding: 8px 12px;" onclick="buildObject()">建造</button>
+                    <button class="cairo-btn secondary" style="font-size: 9px; padding: 8px 12px;" onclick="closeScenePopup()">取消</button>
+                `;
+            }} else {{
+                actionsDiv.innerHTML = `
+                    <button class="cairo-btn" style="font-size: 9px; padding: 8px 12px;" onclick="closeScenePopup()">关闭</button>
+                `;
+            }}
+
+            document.getElementById('sceneOverlay').classList.add('active');
+            document.getElementById('scenePopup').classList.add('active');
+        }}
+
+        // 关闭场景弹窗
+        function closeScenePopup() {{
+            document.getElementById('sceneOverlay').classList.remove('active');
+            document.getElementById('scenePopup').classList.remove('active');
+        }}
+
+        // 建造物体（示例）
+        function buildObject() {{
+            alert('建造功能待实现！');
+            closeScenePopup();
+        }}
+
+        // 获取角色图标
+        function getCharacterIcon(type) {{
+            const icons = {{
+                'programmer': '👨‍💻',
+                'artist': '👨‍🎨',
+                'planner': '👨‍💼',
+                'sound_engineer': '🎵',
+                'tester': '🧪',
+                'manager': '👔',
+                'intern': '🎓',
+            }};
+            return icons[type] || '👤';
+        }}
+    </script>
+</body>
+</html>
